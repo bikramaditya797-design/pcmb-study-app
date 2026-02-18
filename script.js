@@ -1,34 +1,43 @@
-// Test Generator Application
-class TestGenerator {
-    constructor() {
-        this.questions = [];
-    }
+// script.js
 
-    addQuestion(question, options, answer) {
-        this.questions.push({ question, options, answer });
-    }
-
-    generateTest() {
-        let test = '';
-        this.questions.forEach((q, index) => {
-            test += `Q${index + 1}: ${q.question}\n`;
-            q.options.forEach((option, i) => {
-                test += `   ${String.fromCharCode(65 + i)}. ${option}\n`; // A, B, C, ...
-            });
+// Test Generator Functionality
+function generateTest(questions) {
+    let test = [];
+    questions.forEach(question => {
+        test.push({
+            question: question.text,
+            options: question.options,
+            answer: question.answer
         });
-        return test;
-    }
-
-    checkAnswer(questionIndex, selectedOption) {
-        const correctAnswer = this.questions[questionIndex].answer;
-        return selectedOption === correctAnswer;
-    }
+    });
+    return test;
 }
 
-// Example of using the TestGenerator
-const testGen = new TestGenerator();
+// Login Functionality
+function login(username, password) {
+    const storedUser = { username: 'user', password: 'pass' }; // Dummy credentials
+    return username === storedUser.username && password === storedUser.password;
+}
 
-testGen.addQuestion("What is the capital of France?", ["Berlin", "Madrid", "Paris", "Lisbon"], "C");
-testGen.addQuestion("Which planet is known as the Red Planet?", ["Earth", "Mars", "Jupiter", "Saturn"], "B");
+// Study Materials Management
+const studyMaterials = [];
 
-console.log(testGen.generateTest());
+function addStudyMaterial(title, content) {
+    studyMaterials.push({ title, content });
+}
+
+function getStudyMaterials() {
+    return studyMaterials;
+}
+
+// Navigation Logic
+function navigateTo(page) {
+    console.log(`Navigating to ${page}`);
+    // Logic to change the view/page goes here
+}
+
+// Example usage
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('App Loaded');
+    // Add event listeners and other initialization code here
+});
