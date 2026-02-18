@@ -3,423 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PCMB Study Hub - Class 11 & 12 Test Generator</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>PCMB Study Hub</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation Header -->
-    <header class="navbar">
-        <div class="navbar-container">
-            <div class="logo">
-                <h1>📚 PCMB Study Hub</h1>
-                <p class="tagline">Smart Learning for Class 11 & 12</p>
-            </div>
-            <nav class="nav-links">
-                <a href="#" onclick="navigateTo('dashboard')" class="nav-link">Dashboard</a>
-                <a href="#" onclick="navigateTo('syllabus')" class="nav-link">Syllabus</a>
-                <a href="#" onclick="navigateTo('study')" class="nav-link">Study Material</a>
-                <a href="#" onclick="navigateTo('test')" class="nav-link">Test Generator</a>
-                <div id="loginButton" class="nav-link login-btn" onclick="showLoginModal()">Login</div>
-                <div id="userProfile" class="user-profile hidden">
-                    <span id="userName"></span>
-                    <button onclick="logout()" class="logout-btn">Logout</button>
-                </div>
-            </nav>
-        </div>
+    <header>
+        <h1>Welcome to the PCMB Study Hub</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#courses">Courses</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-
-    <!-- Main Content Area -->
-    <main class="main-content">
-        <!-- Dashboard Section -->
-        <section id="dashboard" class="section active">
-            <div class="dashboard-container">
-                <div class="welcome-banner">
-                    <h2>Welcome to PCMB Study Hub! 🎯</h2>
-                    <p>Your free gateway to endless learning and practice tests</p>
-                </div>
-
-                <!-- Free Tests Counter -->
-                <div class="counter-card">
-                    <h3>Your Free Tests</h3>
-                    <div class="counter-display">
-                        <span id="freeTestsLeft">3</span>
-                        <p>Free Tests Left</p>
-                    </div>
-                    <p class="counter-info">No login required. Generate 3 free tests to explore.</p>
-                </div>
-
-                <!-- Quick Access Cards -->
-                <div class="cards-grid">
-                    <div class="feature-card" onclick="navigateTo('syllabus')">
-                        <div class="card-icon">📋</div>
-                        <h3>Latest Syllabus</h3>
-                        <p>Chapter-wise curriculum for all subjects</p>
-                        <button class="btn-primary">Explore</button>
-                    </div>
-
-                    <div class="feature-card" onclick="navigateTo('study')">
-                        <div class="card-icon">📖</div>
-                        <h3>Study Material</h3>
-                        <p>Notes and formulas for every topic</p>
-                        <button class="btn-primary">Browse</button>
-                    </div>
-
-                    <div class="feature-card" onclick="navigateTo('test')">
-                        <div class="card-icon">✍️</div>
-                        <h3>Custom Test Generator</h3>
-                        <p>Create tests matching your preferences</p>
-                        <button class="btn-primary">Generate</button>
-                    </div>
-                </div>
-
-                <!-- Info Box -->
-                <div class="info-box">
-                    <h4>✨ How It Works</h4>
-                    <ol>
-                        <li>Explore syllabus and study materials <strong>completely free</strong></li>
-                        <li>Generate up to <strong>3 free tests</strong> without login</li>
-                        <li>Login to unlock <strong>unlimited tests</strong> and PDF downloads</li>
-                        <li>Practice board-exam style questions</li>
-                    </ol>
-                </div>
-            </div>
+    <main>
+        <section id="home">
+            <h2>Home</h2>
+            <p>Your one-stop solution for Physics, Chemistry, Mathematics, and Biology study materials.</p>
         </section>
-
-        <!-- Syllabus Section -->
-        <section id="syllabus" class="section">
-            <div class="container">
-                <h2>📚 PCMB Syllabus</h2>
-                <p class="section-subtitle">Download chapter-wise curriculum for your class</p>
-
-                <!-- Class Selection -->
-                <div class="class-selector">
-                    <button class="class-btn active" onclick="filterSyllabus(11)">Class 11</button>
-                    <button class="class-btn" onclick="filterSyllabus(12)">Class 12</button>
-                </div>
-
-                <!-- Syllabus Content -->
-                <div class="syllabus-content">
-                    <div id="class11Syllabus" class="class-syllabus">
-                        <h3>Class 11 Subjects</h3>
-                        <div class="subjects-grid">
-                            <div class="subject-card">
-                                <h4>📐 Physics</h4>
-                                <ul class="chapters-list">
-                                    <li>Physical World and Measurement</li>
-                                    <li>Kinematics</li>
-                                    <li>Laws of Motion</li>
-                                    <li>Work, Energy and Power</li>
-                                    <li>Motion of System of Particles</li>
-                                    <li>Gravitation</li>
-                                    <li>Properties of Bulk Matter</li>
-                                    <li>Heat and Thermodynamics</li>
-                                    <li>Oscillations</li>
-                                    <li>Waves</li>
-                                </ul>
-                                <button class="btn-download" onclick="downloadSyllabus('Class 11', 'Physics')">📥 Download PDF</button>
-                            </div>
-
-                            <div class="subject-card">
-                                <h4>⚗️ Chemistry</h4>
-                                <ul class="chapters-list">
-                                    <li>Some Basic Concepts of Chemistry</li>
-                                    <li>Structure of Atom</li>
-                                    <li>Classification of Elements</li>
-                                    <li>Chemical Bonding</li>
-                                    <li>States of Matter</li>
-                                    <li>Thermodynamics</li>
-                                    <li>Equilibrium</li>
-                                    <li>Redox Reactions</li>
-                                    <li>Hydrogen</li>
-                                    <li>The s-Block Elements</li>
-                                </ul>
-                                <button class="btn-download" onclick="downloadSyllabus('Class 11', 'Chemistry')">📥 Download PDF</button>
-                            </div>
-
-                            <div class="subject-card">
-                                <h4>🔢 Mathematics</h4>
-                                <ul class="chapters-list">
-                                    <li>Sets</li>
-                                    <li>Relations and Functions</li>
-                                    <li>Trigonometric Functions</li>
-                                    <li>Principle of Mathematical Induction</li>
-                                    <li>Complex Numbers</li>
-                                    <li>Linear Inequalities</li>
-                                    <li>Permutations and Combinations</li>
-                                    <li>Binomial Theorem</li>
-                                    <li>Sequences and Series</li>
-                                    <li>Straight Lines</li>
-                                </ul>
-                                <button class="btn-download" onclick="downloadSyllabus('Class 11', 'Mathematics')">📥 Download PDF</button>
-                            </div>
-
-                            <div class="subject-card">
-                                <h4>🧬 Biology</h4>
-                                <ul class="chapters-list">
-                                    <li>Diversity in Living World</li>
-                                    <li>Structural Organization in Animals and Plants</li>
-                                    <li>Cell Structure and Function</li>
-                                    <li>Plant Physiology</li>
-                                    <li>Human Physiology</li>
-                                    <li>Respiration</li>
-                                    <li>Body Fluids and Circulation</li>
-                                    <li>Excretory Products and Elimination</li>
-                                    <li>Locomotion and Movement</li>
-                                    <li>Neural Control and Coordination</li>
-                                </ul>
-                                <button class="btn-download" onclick="downloadSyllabus('Class 11', 'Biology')">📥 Download PDF</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="class12Syllabus" class="class-syllabus hidden">
-                        <h3>Class 12 Subjects</h3>
-                        <div class="subjects-grid">
-                            <div class="subject-card">
-                                <h4>📐 Physics</h4>
-                                <ul class="chapters-list">
-                                    <li>Electric Charges and Fields</li>
-                                    <li>Electrostatic Potential and Capacitance</li>
-                                    <li>Current Electricity</li>
-                                    <li>Moving Charges and Magnetism</li>
-                                    <li>Magnetism and Matter</li>
-                                    <li>Electromagnetic Induction</li>
-                                    <li>Alternating Current</li>
-                                    <li>Electromagnetic Waves</li>
-                                    <li>Ray Optics and Optical Instruments</li>
-                                    <li>Wave Optics</li>
-                                </ul>
-                                <button class="btn-download" onclick="downloadSyllabus('Class 12', 'Physics')">📥 Download PDF</button>
-                            </div>
-
-                            <div class="subject-card">
-                                <h4>⚗️ Chemistry</h4>
-                                <ul class="chapters-list">
-                                    <li>Solutions</li>
-                                    <li>Electrochemistry</li>
-                                    <li>Chemical Kinetics</li>
-                                    <li>Surface Chemistry</li>
-                                    <li>General Principles of Isolation</li>
-                                    <li>The p-Block Elements</li>
-                                    <li>The d and f Block Elements</li>
-                                    <li>Coordination Compounds</li>
-                                    <li>Haloalkanes and Haloarenes</li>
-                                    <li>Alcohols, Phenols and Ethers</li>
-                                </ul>
-                                <button class="btn-download" onclick="downloadSyllabus('Class 12', 'Chemistry')">📥 Download PDF</button>
-                            </div>
-
-                            <div class="subject-card">
-                                <h4>🔢 Mathematics</h4>
-                                <ul class="chapters-list">
-                                    <li>Relations and Functions</li>
-                                    <li>Inverse Trigonometric Functions</li>
-                                    <li>Matrices</li>
-                                    <li>Determinants</li>
-                                    <li>Continuity and Differentiability</li>
-                                    <li>Application of Derivatives</li>
-                                    <li>Integrals</li>
-                                    <li>Application of Integrals</li>
-                                    <li>Differential Equations</li>
-                                    <li>Vector Algebra</li>
-                                </ul>
-                                <button class="btn-download" onclick="downloadSyllabus('Class 12', 'Mathematics')">📥 Download PDF</button>
-                            </div>
-
-                            <div class="subject-card">
-                                <h4>🧬 Biology</h4>
-                                <ul class="chapters-list">
-                                    <li>Reproduction in Organisms</li>
-                                    <li>Sexual Reproduction in Flowering Plants</li>
-                                    <li>Human Reproduction</li>
-                                    <li>Reproductive Health</li>
-                                    <li>Principles of Inheritance and Variation</li>
-                                    <li>Molecular Basis of Inheritance</li>
-                                    <li>Evolution</li>
-                                    <li>Human Health and Diseases</li>
-                                    <li>Strategies for Enhancement of Food Production</li>
-                                    <li>Microbes in Human Welfare</li>
-                                </ul>
-                                <button class="btn-download" onclick="downloadSyllabus('Class 12', 'Biology')">📥 Download PDF</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>At PCMB Study Hub, we provide comprehensive resources for your studies.</p>
         </section>
-
-        <!-- Study Material Section -->
-        <section id="study" class="section">
-            <div class="container">
-                <h2>📖 Study Material</h2>
-                <p class="section-subtitle">Free study notes and important formulas</p>
-
-                <!-- Class Selection -->
-                <div class="class-selector">
-                    <button class="class-btn active" onclick="filterStudy(11)">Class 11</button>
-                    <button class="class-btn" onclick="filterStudy(12)">Class 12</button>
-                </div>
-
-                <!-- Subject Selection -->
-                <div class="subject-selector">
-                    <button class="subject-btn active" onclick="filterBySubject('Physics')">Physics</button>
-                    <button class="subject-btn" onclick="filterBySubject('Chemistry')">Chemistry</button>
-                    <button class="subject-btn" onclick="filterBySubject('Mathematics')">Mathematics</button>
-                    <button class="subject-btn" onclick="filterBySubject('Biology')">Biology</button>
-                </div>
-
-                <!-- Study Topics -->
-                <div class="study-grid" id="studyGrid">
-                    <!-- Topics will be loaded here by JavaScript -->
-                </div>
-            </div>
+        <section id="courses">
+            <h2>Our Courses</h2>
+            <ul>
+                <li>Physics</li>
+                <li>Chemistry</li>
+                <li>Mathematics</li>
+                <li>Biology</li>
+            </ul>
         </section>
-
-        <!-- Test Generator Section -->
-        <section id="test" class="section">
-            <div class="container">
-                <h2>✍️ Custom Test Generator</h2>
-                <p class="section-subtitle">Create your personalized test in seconds</p>
-
-                <div class="test-generator-wrapper">
-                    <form id="testForm" class="test-form">
-                        <!-- Class Selection -->
-                        <div class="form-group">
-                            <label for="selectClass">Select Class</label>
-                            <select id="selectClass" required>
-                                <option value="">-- Choose Class --</option>
-                                <option value="11">Class 11</option>
-                                <option value="12">Class 12</option>
-                            </select>
-                        </div>
-
-                        <!-- Subject Selection -->
-                        <div class="form-group">
-                            <label for="selectSubject">Select Subject</label>
-                            <select id="selectSubject" required>
-                                <option value="">-- Choose Subject --</option>
-                                <option value="Physics">Physics</option>
-                                <option value="Chemistry">Chemistry</option>
-                                <option value="Mathematics">Mathematics</option>
-                                <option value="Biology">Biology</option>
-                            </select>
-                        </div>
-
-                        <!-- Topic Input -->
-                        <div class="form-group">
-                            <label for="selectTopic">Topic/Sub-topic (Optional)</label>
-                            <input type="text" id="selectTopic" placeholder="e.g., Kinematics, Bonding, Integration, Photosynthesis">
-                        </div>
-
-                        <!-- Difficulty Level -->
-                        <div class="form-group">
-                            <label>Difficulty Level</label>
-                            <div class="radio-group">
-                                <label class="radio-label">
-                                    <input type="radio" name="difficulty" value="Easy" required> Easy
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="difficulty" value="Medium" checked> Medium
-                                </label>
-                                <label class="radio-label">
-                                    <input type="radio" name="difficulty" value="Hard"> Hard
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Question Type -->
-                        <div class="form-group">
-                            <label>Question Type</label>
-                            <div class="checkbox-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="questionType" value="MCQ" checked> MCQ (Multiple Choice)
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="questionType" value="ShortAnswer"> Short Answer
-                                </label>
-                                <label class="checkbox-label">
-                                    <input type="checkbox" name="questionType" value="Numerical"> Numerical
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Number of Questions -->
-                        <div class="form-group">
-                            <label for="numQuestions">Number of Questions</label>
-                            <input type="number" id="numQuestions" min="1" max="50" value="10" required>
-                        </div>
-
-                        <!-- Generate Button -->
-                        <button type="button" onclick="generateTest()" class="btn-generate">
-                            ⚡ Generate Test
-                        </button>
-
-                        <div id="freeTestWarning" class="warning-box hidden">
-                            <p>⚠️ You have used all 3 free tests. Please login to generate more tests.</p>
-                            <button type="button" onclick="showLoginModal()" class="btn-primary">Login Now</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Test Output Section -->
-        <section id="testOutput" class="section hidden">
-            <div class="container">
-                <div class="test-header">
-                    <h2 id="testTitle">Generated Test</h2>
-                    <div class="test-meta">
-                        <span id="testClass"></span> | <span id="testSubject"></span> | <span id="testTopic"></span>
-                    </div>
-                </div>
-
-                <div class="test-actions">
-                    <button onclick="navigateTo('test')" class="btn-secondary">← Generate Another Test</button>
-                    <button id="downloadBtn" onclick="downloadTestPDF()" class="btn-primary hidden">📥 Download PDF</button>
-                </div>
-
-                <div id="questionsContainer" class="questions-container">
-                    <!-- Questions will be loaded here -->
-                </div>
-            </div>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>Email: support@pcmbstudyhub.com</p>
         </section>
     </main>
-
-    <!-- Login Modal -->
-    <div id="loginModal" class="modal hidden">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeLoginModal()">&times;</span>
-            <h2>Create Your Account</h2>
-            <form id="loginForm" onsubmit="handleLogin(event)">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="studentClass">Class</label>
-                    <select id="studentClass" required>
-                        <option value="">-- Select Class --</option>
-                        <option value="11">Class 11</option>
-                        <option value="12">Class 12</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" required>
-                </div>
-
-                <button type="submit" class="btn-primary full-width">Login / Sign Up</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2026 PCMB Study Hub. Made with ❤️ for students. Learning without limits.</p>
+    <footer>
+        <p>&copy; 2026 PCMB Study Hub</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
-<html>
+</html>
